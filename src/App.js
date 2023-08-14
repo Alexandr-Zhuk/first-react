@@ -1,7 +1,15 @@
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [someText, setSomeText] = useState(false);
+
+  const changeText = (ev) => {
+    setSomeText(!someText);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +23,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          {someText ? (<>Клік! </>) : (<>Не клік! </>)}
           Learn React
         </a>
+        <div onClick={changeText}>Клікни</div>
       </header>
     </div>
   );
